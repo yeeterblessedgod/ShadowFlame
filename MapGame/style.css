@@ -1,0 +1,133 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Отключаем полосы прокрутки */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Контейнер для видеофона */
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Размещаем видео на заднем плане */
+  }
+  
+  /* Стили для видео */
+  #background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Сохраняем пропорции видео */
+    transform: translate(-50%, -50%); /* Центрируем видео */
+  }
+  
+  /* Основной контент */
+  .content {
+    position: relative;
+    z-index: 1; /* Размещаем контент поверх видео */
+    text-align: center;
+    color: white;
+    padding-top: 20%;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+  
+  /* Контейнер для кнопок управления картой */
+  .controls {
+    position: relative;
+    z-index: 2; /* Размещаем кнопки поверх видео */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Расстояние между кнопками */
+  }
+  
+  /* Стили для кнопок */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  /* Контейнер для карты */
+  .map-container {
+    position: relative;
+    z-index: 2; /* Размещаем карту поверх видео */
+    width: 95%;
+    max-width: 1400px;
+    max-height: 90vh;
+    border: 15px solid #333;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    margin: 0 auto; /* Центрируем карту */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон для рамки */
+  }
+  
+  /* Рамка вокруг карты */
+  .map-frame {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* Стили для изображения карты */
+  #interactive-map {
+    display: block;
+    width: 100%; /* Изображение будет масштабироваться под контейнер */
+    height: auto; /* Сохраняем пропорции */
+    cursor: grab;
+  }
+  
+  /* Медиа-запросы для мобильных устройств */
+  @media (max-width: 768px) {
+    .map-container {
+      width: 100%; /* На маленьких экранах занимаем всю ширину */
+      max-width: none;
+      max-height: 80vh; /* Уменьшаем высоту для лучшей читаемости */
+      border-width: 10px; /* Уменьшаем толщину рамки */
+      padding: 10px; /* Уменьшаем внутренние отступы */
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .map-container {
+      max-height: 70vh; /* Еще больше уменьшаем высоту */
+    }
+  }
